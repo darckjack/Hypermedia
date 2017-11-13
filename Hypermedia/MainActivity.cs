@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using System;
 
 namespace Hypermedia
 {
@@ -26,7 +27,19 @@ namespace Hypermedia
             loginButton = FindViewById<Button>(Resource.Id.loginButton);
             correoEditText = FindViewById<EditText>(Resource.Id.correoTextEdit);
             passwordEditText = FindViewById<EditText>(Resource.Id.passwordTextEdit);
-            
+
+            loginButton.Click += iniciarSesion;
+        }
+
+        void iniciarSesion(object sender, EventArgs ea)
+        {
+            if (correoEditText.Text == correo && passwordEditText.Text == password)
+            {
+
+            } else
+            {
+                Android.Widget.Toast.MakeText(this, "Usuario o contraseña incorrectos", Android.Widget.ToastLength.Short).Show();
+            }
         }
     }
 }
