@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using System;
+using Android.Content;
 
 namespace Hypermedia
 {
@@ -14,7 +15,7 @@ namespace Hypermedia
         private EditText passwordEditText;
         private const string correo = "buenapregunta@nose.com";
         private const string password = "ChingaTuMadreMarcianito";
-        public ProductosRepo repo;
+        public static ProductosRepo repo;
         #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,7 +36,7 @@ namespace Hypermedia
         {
             if (correoEditText.Text == correo && passwordEditText.Text == password)
             {
-
+                var productosActivity = new Intent(this, typeof(productosActivity));
             } else
             {
                 Android.Widget.Toast.MakeText(this, "Usuario o contraseña incorrectos", Android.Widget.ToastLength.Short).Show();
